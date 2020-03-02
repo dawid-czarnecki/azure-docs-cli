@@ -44,6 +44,13 @@ and pipe directly to `bash`, or download the script to a file and inspect it bef
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
+#### Install with one command on Ubuntu derived distribution
+The following command installs Azure CLI on Ubuntu based distributions:
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sed -e 's@CLI_REPO=.*@CLI_REPO="$(grep UBUNTU_CODENAME /etc/os-release |cut -d= -f 2)"@g' | sudo bash
+```
+
 ### Manual install instructions
 
 If you don't want to run a script as superuser or the all-in-one script fails, follow these steps to install the Azure CLI.
